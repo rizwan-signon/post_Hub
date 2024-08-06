@@ -1,6 +1,6 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
-export const RegisterUser = async (req, res, next) => {
+export const registerUser = async (req, res, next) => {
   const { userName, email, password } = req.body;
   try {
     if (!userName || !email || !password)
