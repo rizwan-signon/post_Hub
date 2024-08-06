@@ -1,9 +1,28 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("api/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      alert("user created successfully");
+      navigate("/login");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log(formData);
@@ -12,7 +31,11 @@ const Register = () => {
       <h1 className="text-3xl sm:text-3xl font-medium text-blue-700 uppercase text-center mb-8">
         register
       </h1>
-      <form action="#" className=" shadow-xl max-w-4xl mx-auto px-6 py-10">
+      <form
+        onSubmit={handleSubmit}
+        action="#"
+        className=" shadow-xl max-w-4xl mx-auto px-6 py-10"
+      >
         <div className="max-w-2xl mx-auto flex flex-col gap-5">
           <input
             onChange={handleChange}
