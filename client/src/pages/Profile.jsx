@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 const Profile = () => {
   const [formData, setFormData] = useState({});
+  const { currentUser } = useSelector((state) => state.user);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -12,6 +14,7 @@ const Profile = () => {
       <form action="#">
         <div className="max-w-2xl mx-auto flex flex-col gap-5">
           <input
+            value={currentUser.userName}
             onChange={handleChange}
             type="text"
             placeholder="username"
@@ -19,6 +22,7 @@ const Profile = () => {
             className="w-full bg-gray-200 p-3 rounded-lg focus:outline-none"
           />
           <input
+            value={currentUser.email}
             onChange={handleChange}
             type="email"
             placeholder="email"

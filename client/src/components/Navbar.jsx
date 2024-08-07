@@ -1,6 +1,8 @@
 import { MdOutlinePermMedia } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Navbar = () => {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <header className=" bg-blue-700 py-2">
       <nav className=" max-w-6xl mx-auto flex items-center justify-between">
@@ -21,10 +23,14 @@ const Navbar = () => {
               Register
             </button>
           </Link>
-          <Link to={"/login"}>
-            <button className=" px-3 py-2 rounded-lg bg-green-700 text-white uppercase">
-              Login
-            </button>
+          <Link to={"/profile"}>
+            {currentUser ? (
+              <h1>{currentUser.userName}</h1>
+            ) : (
+              <button className=" px-3 py-2 rounded-lg bg-green-700 text-white uppercase">
+                Login
+              </button>
+            )}
           </Link>
         </div>
       </nav>

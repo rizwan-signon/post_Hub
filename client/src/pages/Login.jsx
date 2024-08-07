@@ -21,8 +21,9 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.success === false) throw new Error("user not found");
+
       dispatch(storeUser(data));
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       console.log(error);
     }
