@@ -7,7 +7,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     storeUser: (state, actions) => {
-      state.currentUser = actions.pay;
+      state.currentUser = actions.payload;
     },
   },
 });

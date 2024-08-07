@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { storeUser } from "../redux/slices/userSlice";
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const handleChange = (e) => {
@@ -18,8 +21,7 @@ const Login = () => {
       });
       const data = await response.json();
       if (data.success === false) throw new Error("user not found");
-      console.log(data);
-      alert("user found successfully");
+      dispatch(storeUser(data));
       navigate("/");
     } catch (error) {
       console.log(error);
