@@ -41,19 +41,23 @@ export const logInUser = async (req, res, next) => {
 };
 
 export const updateUser = async (req, res, next) => {
-  if (req.user.id !== req.params.id)
-    throw new Error("you can update your own account");
-  const updatedUser = await User.findByIdAndUpdate(
-    req.params.id,
-    {
-      $set: {
-        userName: req.body.userName,
-        email: req.body.email,
-        password: req.body.password,
+  try {
+    if (req.user.id !== req.params.id)
+      throw new Error("you can update your own account");
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: {
+          userName: req.body.userName,
+          email: req.body.email,
+          password: bcryptjs.hashSync(req.body.password, 10),
+        },
       },
-    },
-    { new: true }
-  );
-  const { password, ...rest } = updatedUser._doc;
-  res.status(200).json(rest);
+      { new: true }
+    );
+    const { password, ...rest } = updatedUser._doc;
+    res.status(200).json(rest);
+  } catch (error) {
+    next(error);
+  }
 };
