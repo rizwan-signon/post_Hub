@@ -1,6 +1,7 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+
 export const registerUser = async (req, res, next) => {
   const { userName, email, password } = req.body;
   try {
@@ -37,4 +38,22 @@ export const logInUser = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const updateUser = async (req, res, next) => {
+  if (req.user.id !== req.params.id)
+    throw new Error("you can update your own account");
+  const updatedUser = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: {
+        userName: req.body.userName,
+        email: req.body.email,
+        password: req.body.password,
+      },
+    },
+    { new: true }
+  );
+  const { password, ...rest } = updatedUser._doc;
+  res.status(200).json(rest);
 };
