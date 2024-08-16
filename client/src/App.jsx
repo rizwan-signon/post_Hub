@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import Protected from "./components/Protected";
 import Posts from "./pages/Posts";
-
+import GetPosts from "./pages/GetPosts";
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/posts" element={<Posts />} />
         </Route>
+        <Route path="/getposts" element={<GetPosts />} />
       </Routes>
     </BrowserRouter>
   );

@@ -15,7 +15,7 @@ const Navbar = () => {
             <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <Link to={"/posts"}>posts</Link>
+            <Link to={"/getposts"}>Feed</Link>
           </li>
           <li>
             <Theme />
