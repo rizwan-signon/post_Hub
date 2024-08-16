@@ -23,7 +23,7 @@ const Profile = () => {
     }
   };
   return (
-    <div className=" max-w-sm sm:max-w-lg mx-auto">
+    <div className=" max-w-sm sm:max-w-lg mx-auto mt-[20%] sm:mt-[10%]">
       <h1 className="text-3xl sm:text-3xl font-medium text-blue-700 uppercase text-center mb-8">
         update
       </h1>
@@ -50,9 +50,14 @@ const Profile = () => {
             id="password"
             className="w-full bg-gray-200 p-3 rounded-lg focus:outline-none"
           />
-          <button className=" bg-blue-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
-            update
-          </button>
+          <div className="flex items-center gap-6">
+            <button className=" bg-blue-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
+              update
+            </button>
+            <button className=" bg-green-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
+              create Post
+            </button>
+          </div>
         </div>
       </form>
     </div>

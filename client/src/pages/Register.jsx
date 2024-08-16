@@ -27,7 +27,7 @@ const Register = () => {
 
   console.log(formData);
   return (
-    <div className="max-w-sm sm:max-w-lg mx-auto mt-16">
+    <div className="max-w-sm sm:max-w-lg mx-auto sm:mt-[10%] mt-[24%]">
       <h1 className="text-3xl sm:text-3xl font-medium text-blue-700 uppercase text-center mb-8">
         register
       </h1>

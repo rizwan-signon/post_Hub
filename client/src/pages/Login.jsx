@@ -30,7 +30,7 @@ const Login = () => {
   };
   console.log(formData);
   return (
-    <div className="max-w-sm sm:max-w-lg mx-auto mt-16">
+    <div className="max-w-sm sm:max-w-lg mx-auto mt-[10%]">
       <h1 className="text-3xl sm:text-3xl font-medium text-blue-700 uppercase text-center mb-8">
         Login
       </h1>
