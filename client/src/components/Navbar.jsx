@@ -1,10 +1,11 @@
 import { MdOutlinePermMedia } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Theme from "./Theme";
 const Navbar = () => {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <header className=" bg-blue-500 text-white py-2 fixed top-0 w-full z-50">
+    <header className=" bg-blue-500 text-white py-2 w-full z-50">
       <nav className=" max-w-6xl mx-auto flex items-center justify-between">
         <div className="text-5xl">
           <MdOutlinePermMedia className="text-white" />
@@ -15,6 +16,9 @@ const Navbar = () => {
           </li>
           <li>
             <Link to={"/posts"}>posts</Link>
+          </li>
+          <li>
+            <Theme />
           </li>
         </ul>
         <div className="text-white flex items-center gap-6">

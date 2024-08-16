@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Profile = () => {
   const [formData, setFormData] = useState({});
   const { currentUser } = useSelector((state) => state.user);
@@ -54,9 +55,12 @@ const Profile = () => {
             <button className=" bg-blue-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
               update
             </button>
-            <button className=" bg-green-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
-              create Post
-            </button>
+            <Link
+              to="/posts"
+              className=" bg-green-700 rounded-lg p-3 text-center w-full text-white uppercase font-medium hover:opacity-85"
+            >
+              <button className=" uppercase">create Post</button>
+            </Link>
           </div>
         </div>
       </form>

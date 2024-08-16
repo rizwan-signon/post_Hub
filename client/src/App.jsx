@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
 import Protected from "./components/Protected";
+import Posts from "./pages/Posts";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route element={<Protected />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/posts" element={<Posts />} />
         </Route>
       </Routes>
     </BrowserRouter>

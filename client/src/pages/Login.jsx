@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { storeUser } from "../redux/slices/userSlice";
 const Login = () => {
@@ -57,6 +57,15 @@ const Login = () => {
           <button className=" bg-blue-700 rounded-lg p-3 w-full text-white uppercase font-medium hover:opacity-85">
             Login
           </button>
+          <div className="flex items-center justify-between">
+            <p className=" text-green-600">dont have an account?</p>
+            <Link
+              to="/register"
+              className=" underline decoration-blue-700 underline-offset-4 font-bold"
+            >
+              signup
+            </Link>
+          </div>
         </div>
       </form>
     </div>
