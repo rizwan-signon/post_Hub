@@ -1,6 +1,7 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Posts = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const handlechange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -17,6 +18,7 @@ const Posts = () => {
       });
       const data = await res.json();
       console.log(data);
+      navigate("/getposts");
     } catch (error) {
       console.log(error);
     }
